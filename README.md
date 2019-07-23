@@ -8,6 +8,7 @@ simple "homepage" for your project. Instructions for creating your own
 GitHub repository from these files may be given during the course. The
 same instructions are also summarized in [CONTRIBUTING.md].
 
+My work at the SESYNC summer institute for SES.
 
 ## Collaborators
 
