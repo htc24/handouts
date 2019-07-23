@@ -13,6 +13,7 @@ My work at the SESYNC summer institute for SES.
 ## Collaborators
 
 - Holly Cronin
+- Mohammad Eshghi
 
 ## Data
 
