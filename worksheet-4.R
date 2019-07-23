@@ -108,3 +108,28 @@ cbp <- cbp %>%
 
 acs_cbp <- cbp %>%
   inner_join(acs)
+
+#Exercise 1
+long_survey <- gather(tidy_survey, key = "attr",
+                      value = "val", -participant)
+
+
+#Exercise 2
+cbp_23 <- fread('data/cbp15co.csv', na.strings = '') %>%
+  filter(NAICS == '23----') %>%
+  select(starts_with('FIPS'), starts_with('AP'))
+
+
+#Exercise 3
+cbp_21 <- fread('data/cbp15co.csv', na.strings = '') %>%
+  filter(NAICS == '21----') %>%
+  group_by(FIPSTATE, FIPSCTY) %>%
+  summarize(EMP = sum(EMP)) %>%
+  summarize(EMP = sum(EMP), counties = n())
+
+#Exercise 4
+pivot <- fread('data/cbp15co.csv', na.strings = '') %>%
+  filter(str_detect(NAICS, '[0-9]{2}----')) %>%
+  group_by(FIPSTATE, NAICS) %>%
+  summarize(EMP = sum(EMP)) %>%
+  spread(key = NAICS, value = EMP)
